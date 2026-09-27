@@ -1,0 +1,17 @@
+{
+  "name": "Waqaar App UI Kit",
+  "short_name": "Waqaar UI",
+  "description": "Reusable responsive web and PWA interface patterns.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#090d16",
+  "theme_color": "#111723",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
