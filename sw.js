@@ -1,4 +1,4 @@
-const CACHE = "waqaar-ui-kit-v1";
+const CACHE = "waqaar-ui-kit-v2";
 const ASSETS = [
   "./",
   "index.html",

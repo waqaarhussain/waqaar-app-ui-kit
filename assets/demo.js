@@ -11,17 +11,20 @@ function icon(name) {
 function applyTheme(theme) {
   root.dataset.theme = theme;
   localStorage.setItem("waqaar-ui-theme", theme);
-  const nextIcon = theme === "dark" ? "sun" : "moon";
+  const dark = theme === "dark" || (theme === "system" && matchMedia("(prefers-color-scheme: dark)").matches);
+  const nextIcon = dark ? "sun" : "moon";
+  const action = dark ? "Switch to light theme" : "Switch to dark theme";
   document.querySelectorAll(".theme-button").forEach((button) => {
     const label = button.querySelector("span");
-    button.innerHTML = icon(nextIcon) + (label ? "<span>Theme</span>" : "");
-    button.setAttribute("aria-label", "Change colour theme. Current setting: " + theme);
+    button.innerHTML = icon(nextIcon) + (label ? "<span>" + action + "</span>" : "");
+    button.setAttribute("aria-label", action);
   });
 }
 
 function cycleTheme() {
   const current = root.dataset.theme;
-  applyTheme(current === "system" ? "dark" : current === "dark" ? "light" : "system");
+  const dark = current === "dark" || (current === "system" && matchMedia("(prefers-color-scheme: dark)").matches);
+  applyTheme(dark ? "light" : "dark");
 }
 
 function navigate(view) {
